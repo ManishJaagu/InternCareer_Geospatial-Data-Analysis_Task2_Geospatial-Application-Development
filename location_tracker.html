@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapVault Real-Time Location Tracker</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- Leaflet GeoCoder CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Leaflet GeoCoder JS -->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    
+    <script>
+        // Map Initialization
+        var map = L.map('map').setView([17.686815, 83.218483], 12);
+
+        // Adding OSM tile layer to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Checking for geolocation support by the device
+        if (!navigator.geolocation) {
+            console.log("Your Browser doesn't support geolocation feature!");
+        } else {
+            navigator.geolocation.watchPosition(getPosition, handleError, { enableHighAccuracy: true, maximumAge: 5000, timeout: 5000 });
+        }
+
+        var marker, circle;
+
+        // To handle geolocation
+        function getPosition(position) {
+            console.log(position);
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            var accuracy = position.coords.accuracy;
+
+            // Remove existing marker and circle to prevent overlapping per every update
+            if (marker) {
+                marker.remove();
+            }
+
+            if (circle) {
+                circle.remove();
+            }
+
+            // Creating a new marker and circle
+            marker = L.marker([lat, long]).addTo(map);
+            circle = L.circle([lat, long], { radius: accuracy }).addTo(map);
+
+            var featureGroup = L.featureGroup([marker, circle]).addTo(map);
+            map.fitBounds(featureGroup.getBounds());
+
+            console.log(`Latitude: ${lat} ; Longitude: ${long} ; Accuracy: ${accuracy}`);
+        }
+
+        // To handle geolocation errors
+        function handleError(error) {
+            console.error('Error getting GPS position:', error);
+            alert('Error getting GPS position. Please ensure GPS is enabled or reload the page.');
+        }
+
+        // Adding GeoCoder search control
+        L.Control.geocoder().addTo(map);
+
+    </script>
+</body>
+</html>

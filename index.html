@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MapVault</title> <!--My website Title-->
+        <link rel="shortcut icon" type="mv-icon" href="assets/mv3.png"> <!--link for title logo-->
+        <link rel="stylesheet" href="styles.css"><!--link for Task1 stylesheet-->
+        <!--Google fonts link for "Inter tight" font-->   
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <!--Font Awesome icon CDN link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- AOS Library CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+        
+    </head>
+    <body id="main-body">
+        <!--The header section-->
+        <div class="header" data-aos="fade-down">
+            <div class="left-section"><!--Header-Logo Section-->
+                <img class="mv-icon" src="assets/mv_white.png" data-aos="zoom-in" data-aos-delay="500">
+            </div>
+        </div>
+    
+        <!--Body for my Home section-->
+        <!--Home Section-->
+        <section class="home-background" id="home-section" data-aos="fade-down" data-aos-delay="300">
+            <h1 data-aos="fade-left" data-aos-delay="1000">Welcome to MapVault</h1>
+            <p data-aos="fade-right" data-aos-delay="1200">Discover the amazing maps now!</p>
+            <a id="route-app" href="./thematic_layers.html" data-aos="fade-up" data-aos-delay="1500">Thematic Layered Maps</a>
+            <a id="route-app" href="./route_app.html" data-aos="fade-up" data-aos-delay="1500">Route Map Application</a>
+            <a id="route-app" href="./location_tracker.html" data-aos="fade-up" data-aos-delay="1500">Live location Tracker</a>
+    
+        </section>
+    
+        <div class="footer"> <!--The footer section-->
+            <div class="footer-links"><!--Header-Right Section-link section-->
+                <a href="#" class="footer-link">Terms</a>
+                <a href="#" class="footer-link">Privacy</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Map Vault © 2024</a>
+            </div>
+            <div>
+                <p> 2024 Map vault systems. All rights reserved.</p>
+            </div>
+        </div>  
+
+    <!-- AOS Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

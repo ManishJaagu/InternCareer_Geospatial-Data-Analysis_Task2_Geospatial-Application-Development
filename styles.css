@@ -1,0 +1,125 @@
+/*------------------------------------------------- HEADER SECTION ---------------------------------------------*/
+/*------------------------------------------------------- HEADER -------------------------------------------------------*/
+.header {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* HEADER LEFT SECTION */
+.left-section {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.mv-icon {
+    cursor: pointer;
+    height: 40px;
+}
+/*------------------------------------------------------ BODY ----------------------------------------------------*/
+
+body, html {
+    background-color: black;
+    padding-top: 0;
+    height: 100%;
+    margin: 0;
+    font-family: "Inter Tight", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* HOME DIVISION */
+.home-background {
+    background-image: url(assets/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-family: "Inter Tight", sans-serif;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+}
+.home-background h1,
+.home-background p {
+    text-shadow: -1px -1px 0 #161515, 1px -1px 0 #161515, -1px 1px 0 #161515, 1px 1px 0 #161515;
+}
+/*-----------------------------------------------BODY 2---------------------------------------------*/
+#route-app {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin: 30px;
+}
+#route-app:hover {
+    background-color: #0056b3;
+}
+#route-app:active {
+    background-color: #003d7a;
+}
+
+
+
+/*------------------------------------------------------ FOOTER SECTION -------------------------------------------*/
+.footer {
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    clear: both;
+}
+.footer-links {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.footer-link {
+    display: flex;
+    gap: 40px;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-link:hover {
+    color: rgb(205, 195, 195);
+}
+
+.footer-link:active {
+    color: grey;
+}
+
+.footer p {
+    color: white;
+    margin-top: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
